@@ -4,6 +4,7 @@
  * Please be sure not to change the method signatures!
  */
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.TreeMap;
@@ -14,17 +15,15 @@ public class MovieRatingsProcessor {
     /**
      * return a List of movie titles in alphabetical order
      *
-     * If the input is null or an empty TreeMap, the data structure returned by the method should be empty
-     * You can assume that all movie titles in the input TreeMap consist of lowercase letters.
-     *
      * @param movieRatings
      * @return
      */
 	public static List<String> getAlphabeticalMovies(TreeMap<String, PriorityQueue<Integer>> movieRatings) {
-		
+		if (movieRatings == null || movieRatings.isEmpty()) {
+			return new ArrayList<String>();
+		}
 
-		
-		return null;
+		return new ArrayList<String>(movieRatings.navigableKeySet());
 	}
 
     /**
@@ -32,17 +31,16 @@ public class MovieRatingsProcessor {
      * not have any ratings less than or equal to rating (hint: the PriorityQueue is a min-heap, meaning that the
      * smallest rating is at the front of the queue!)
      *
-     * If the input is null or an empty TreeMap, the data structure returned by the method should be empty
-     * You can assume that all movie titles in the input TreeMap consist of lowercase letters.
-     *
      * @param movieRatings
      * @param rating
      * @return
      */
 	public static List<String> getAlphabeticalMoviesAboveRating(TreeMap<String, PriorityQueue<Integer>> movieRatings, int rating) {
-		
+		if (movieRatings == null || movieRatings.isEmpty()) {
+			return new ArrayList<String>();
+		}
 
-		
+
 		return null;
 	}
 
