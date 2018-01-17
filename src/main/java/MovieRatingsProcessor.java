@@ -4,10 +4,7 @@
  * Please be sure not to change the method signatures!
  */
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.TreeMap;
+import java.util.*;
 
 
 public class MovieRatingsProcessor {
@@ -40,8 +37,22 @@ public class MovieRatingsProcessor {
 			return new ArrayList<String>();
 		}
 
+		ArrayList<String> result = new ArrayList<String>();
 
-		return null;
+		for (Map.Entry<String, PriorityQueue<Integer>> entry : movieRatings.entrySet()) {
+		    PriorityQueue<Integer> ratings =  entry.getValue();
+
+		    if (rating >= ratings.peek()) {
+		        continue;
+            }
+
+            //TODO: could possibly use Binary Search Tree to get alphabetical order for practice
+            //Insert and remove are both Log(n) so complexity would be 2 * n * log(n)
+            result.add(entry.getKey());
+        }
+
+        Collections.sort(result);
+		return result;
 	}
 
     /**
